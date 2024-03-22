@@ -1,9 +1,7 @@
-function JobHeader() {
+function FeaturedJobsHeader() {
   return (
     <div className="text-center py-10">
-      <h1 className="font-bold text-3xl py-2 text-gray-800">
-        Job Category List
-      </h1>
+      <h1 className="font-bold text-3xl py-2 text-gray-800">Featured Jobs</h1>
       <p>
         Explore thousands of job opportunities with all the information you
         need. Its your future
@@ -12,4 +10,4 @@ function JobHeader() {
   );
 }
 
-export default JobHeader;
+export default FeaturedJobsHeader;
