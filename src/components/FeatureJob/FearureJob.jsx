@@ -1,5 +1,8 @@
+import { Link } from "react-router-dom";
+
 function FearureJob({ job }) {
   const {
+    id,
     logo,
     job_title,
     company_name,
@@ -33,9 +36,11 @@ function FearureJob({ job }) {
           {salary}
         </p>
       </div>
-      <button className="btn bg-gradient-to-r from-blue-400 to-purple-400 text-white">
-        View Ditails
-      </button>
+      <Link to={`/jobDetails/${id}`}>
+        <button className="btn bg-gradient-to-r from-blue-400 to-purple-400 text-white">
+          View Ditails
+        </button>
+      </Link>
     </div>
   );
 }
