@@ -18,7 +18,7 @@ function JobDetails() {
     salary,
   } = job;
   const handleApplyBtn = () => {
-    saveJobApplication(id);
+    saveJobApplication(idInt);
     toast("Applied Sucessfully");
   };
   return (
@@ -80,6 +80,7 @@ function JobDetails() {
               >
                 Apply Now
               </button>
+
               <ToastContainer />
             </div>
           </div>
