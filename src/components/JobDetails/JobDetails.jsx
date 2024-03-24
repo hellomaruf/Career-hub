@@ -1,6 +1,8 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import JobsAndAppliedHeader from "../JobsAndAppliedHeader/JobsAndAppliedHeader";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { saveJobApplication } from "../../loacalStorage";
 function JobDetails() {
   const jobs = useLoaderData();
   const { id } = useParams();
@@ -15,7 +17,10 @@ function JobDetails() {
     job_description,
     salary,
   } = job;
-
+  const handleApplyBtn = () => {
+    saveJobApplication(id);
+    toast("Applied Sucessfully");
+  };
   return (
     <div className="">
       <JobsAndAppliedHeader title={"Job Details"} />
@@ -69,9 +74,13 @@ function JobDetails() {
               </p>
             </div>
             <div className=" text-center w-full">
-              <button className="btn bg-gradient-to-r w-full from-blue-400 to-purple-400 text-white">
+              <button
+                onClick={handleApplyBtn}
+                className="btn bg-gradient-to-r w-full from-blue-400 to-purple-400 text-white"
+              >
                 Apply Now
               </button>
+              <ToastContainer />
             </div>
           </div>
         </div>
