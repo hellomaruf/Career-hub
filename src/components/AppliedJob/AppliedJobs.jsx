@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { getStoredJobApplication } from "../../loacalStorage";
 import DisplayAppliedJobs from "../DisplayAppliedJobs/DisplayAppliedJobs";
+import JobsAndAppliedHeader from "../JobsAndAppliedHeader/JobsAndAppliedHeader";
 
 function AppliedJobs() {
   const [appliedJob, setAppliedJob] = useState([]);
@@ -23,9 +24,12 @@ function AppliedJobs() {
   }, []);
   return (
     <div>
-      {appliedJob.map((items, index) => (
-        <DisplayAppliedJobs appliedJob={items} key={index} />
-      ))}
+      <JobsAndAppliedHeader title={"Applied Jobs"} />
+      <div className="max-w-7xl mx-auto space-y-10 my-16">
+        {appliedJob.map((items, index) => (
+          <DisplayAppliedJobs appliedJob={items} key={index} />
+        ))}
+      </div>
     </div>
   );
 }
